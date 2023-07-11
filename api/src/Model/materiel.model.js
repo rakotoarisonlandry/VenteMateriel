@@ -9,7 +9,7 @@ const  materielSchema = Schema(
         etat:{
             type: String
         },
-        quatity:{
+        quantity:{
             type: Number,
         }
     },{
