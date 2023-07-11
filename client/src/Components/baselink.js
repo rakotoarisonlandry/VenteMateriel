@@ -1,0 +1,1 @@
+export const Baselink = "http://localhost:8000/materiel"
