@@ -9,11 +9,11 @@ The first step is to install the dependencies in your locale.
 
 So go to the **/client** folder and run this command: 
 
-### **npm install**
+### **npm install** | **yarn install**
 
 after you can run  with :
 
-### **npm start**
+### **npm start** | **yarn start**
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
