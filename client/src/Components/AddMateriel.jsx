@@ -28,7 +28,7 @@ function AddMateriel({HandleClickAddnewMaterial}) {
     setError(err=>({...err,state:true}))
     }
     else{
-        const newMaterial = await axios.post('http://localhost:8000/materiel/add',information)
+        const newMaterial = await axios.post('http://localhost:8080/materiel/add',information)
         if(newMaterial.status === 200){
             console.log("Material added successfully")
         }else{

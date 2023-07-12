@@ -7,9 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function Action({params,ChangeValueOfSuccess,ChangeValueOfError}) {
-    const navigate = useNavigate()
+    
     const HandleClickEdit = ()=>{
-        navigate(`/admin/dashboard/student/${params.id}/edit`)
+        // navigate(`/admin/dashboard/student/${params.id}/edit`)
   } 
   const HandleClickDelete = async()=>{
     const deleteQcm = await axios.post(`http://localhost:8080/Etudiant/delete.php/${params.id}`)

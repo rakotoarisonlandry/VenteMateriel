@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose')
-const cors= require('cors')
+const cors = require('cors')
 const materiel = require('./src/Routes/materiel.route')
 
 dotenv.config();
@@ -14,11 +14,17 @@ main()
 //authorization to use req.body
 app.use(express.json())
 
-app.use('/materiel/',materiel)
-app.use(cors())
+//authorization
 
-app.listen(8000,()=>{
-    console.log("listenning on port:" + 8000)
+
+app.use('/materiel/',cors({
+  origin:'http://localhost:3000',
+  credentials:true
+}),materiel)
+  
+
+app.listen(8080,()=>{
+    console.log("listenning on port:" + 8080)
 })
 //function to connect on mongodb
 async function main(){

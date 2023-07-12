@@ -16,8 +16,9 @@ export default function Table() {
   const queryKey = ['materiel']
   const [rows,setRows] = useState([])
   const getMateriel = async()=>{
-    const materiel = await axios.get('http://localhost:8000/materiel/get')
-    return materiel.data
+    const materiel = await axios.get('http://localhost:8080/materiel/get')
+    console.log(materiel.data.materiel)
+    return materiel.data.materiel
   }
   const {isLoading,data} = useQuery(queryKey,getMateriel)
   const ChangeValueOfSuccess = () => {
@@ -59,11 +60,16 @@ export default function Table() {
   ];
 
   useEffect(()=>{
-    data && (
-        data.map(materiel=>(
-            setRows([{ id: materiel._id,Design: materiel.design, Etat: materiel.etat, quantity: materiel.quantity}])
-        ))
-    )
+    data && data.map(materiel => {
+      const newRow = {
+        id: materiel._id,
+        Design: materiel.design,
+        Etat: materiel.etat,
+        quantity: materiel.quantity
+      };
+      setRows(ancien => [...ancien, newRow]);
+      return null
+    })
   },[isLoading])
   
 
