@@ -16,7 +16,7 @@ function App() {
         <AddMateriel HandleClickAddnewMaterial={HandleClickAddnewMaterial}/>
       )
     }
-    <div className="flex flex-col space-y-10 ">
+    <div className="flex flex-col space-y-10">
         <Navbar HandleClickAddnewMaterial={HandleClickAddnewMaterial}  />
         <Table/>
     </div>
