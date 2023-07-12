@@ -2,6 +2,7 @@ const materielModel = require('../Model/materiel.model')
 
 exports.createMateriel = async(req,res)=>{
     try{
+        res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
         const {design,etat,quantity} = req.body
         const materiel = new materielModel({
             design,

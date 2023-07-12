@@ -15,12 +15,7 @@ main()
 app.use(express.json())
 
 app.use('/materiel/',materiel)
-
-//authorization
-app.use(cors({
-    origin:['http://localhost:3000'],
-    credentials: true
-}))
+app.use(cors())
 
 app.listen(8000,()=>{
     console.log("listenning on port:" + 8000)

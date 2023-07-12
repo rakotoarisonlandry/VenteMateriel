@@ -16,7 +16,7 @@ export default function Table() {
   const queryKey = ['materiel']
   const [rows,setRows] = useState([])
   const getMateriel = async()=>{
-    const materiel = await axios.get(`${Baselink}/get`)
+    const materiel = await axios.get('http://localhost:8000/materiel/get')
     return materiel.data
   }
   const {isLoading,data} = useQuery(queryKey,getMateriel)

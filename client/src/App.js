@@ -10,15 +10,17 @@ function App() {
     setShowAdd(ancien=>!ancien)
   }
   return (
-    <div className="flex flex-col space-y-10  relative">
-        {
-          showadd &&  (
-            <AddMateriel/>
-          )
-        }
+    <>
+    {
+      showadd &&  (
+        <AddMateriel HandleClickAddnewMaterial={HandleClickAddnewMaterial}/>
+      )
+    }
+    <div className="flex flex-col space-y-10 ">
         <Navbar HandleClickAddnewMaterial={HandleClickAddnewMaterial}  />
         <Table/>
     </div>
+    </>
   );
 }
 
