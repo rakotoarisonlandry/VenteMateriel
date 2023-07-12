@@ -3,6 +3,8 @@ import './App.css';
 import Navbar from './Components/Navbar';
 import Table from './Components/Table'
 import AddMateriel from './Components/AddMateriel';
+import { ClassNames } from '@emotion/react';
+
 
 function App() {
   const [showadd,setShowAdd] = useState()
@@ -16,7 +18,7 @@ function App() {
         <AddMateriel HandleClickAddnewMaterial={HandleClickAddnewMaterial}/>
       )
     }
-    <div className="flex flex-col space-y-10">
+    <div className="flex flex-col space-y-14 h-screen ">
         <Navbar HandleClickAddnewMaterial={HandleClickAddnewMaterial}  />
         <Table/>
     </div>

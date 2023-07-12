@@ -127,7 +127,7 @@ export default function Table() {
             </motion.div>
           )
         }
-    <Box sx={{ height: 450, width: '96%',margin: "30px" }}>
+    <Box sx={{ height: 450, width: '96%',margin: "30px"}}>
       <DataGrid
         rows={rows}
         columns={columns}
@@ -139,7 +139,7 @@ export default function Table() {
           },
         }}
         pageSizeOptions={[5]}
-        checkboxSelection
+        checkboxSelection   
         disableRowSelectionOnClick
       />
     </Box>
