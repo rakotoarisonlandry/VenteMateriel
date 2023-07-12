@@ -4,7 +4,7 @@ function Navbar({HandleClickAddnewMaterial}) {
 
   return (
 <>
-<div className='fixed h-[8vh] w-full bg-[#5090D3] flex justify-between items-center px-7'>
+<div className='fixed nav h-[8vh] w-full nav bg-[#5090D3] flex justify-between items-center px-7'>
         <div className="">
             
         </div>

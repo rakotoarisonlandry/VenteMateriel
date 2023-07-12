@@ -8,6 +8,7 @@ import {
   QueryClientProvider,
 } from '@tanstack/react-query'
 import axios from 'axios';
+import { Context } from './Context/Context';
 
 axios.defaults.withCredentials = true
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -16,7 +17,9 @@ const queryClient = new QueryClient()
 root.render(
   <React.StrictMode>
      <QueryClientProvider client={queryClient}>
-      <App />
+      <Context>
+        <App />
+      </Context>
      </QueryClientProvider>
   </React.StrictMode>
 );

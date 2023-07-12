@@ -22,3 +22,8 @@
     height: 70vh;
     transform: translate(-50%,-50%);
 }
+.nav{
+    top: 0 !important;
+    left: 0 !important;
+    position: fixed !important;
+}
