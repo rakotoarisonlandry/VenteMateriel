@@ -7,8 +7,9 @@ function Navbar({HandleClickAddnewMaterial}) {
 <>
 <div className='fixed h-[9vh] w-full   bg-[#120029]  opacity-100 flex justify-between items-center px-7'>
         <div className="flex">
-          <h1 className='font-bold  text-[#fff] '>M..</h1>
-          <span className='font-extralight '>|a|t|e|r|i|a|l</span>
+          <h1 className='font-bold  text-[#fff] '>M.</h1>
+          <span className='font-extralight text-[#2194ff]'>|a|t|e|</span>
+          <span className='font-extralight  text-[#993eff]' >r|i|a|l</span>
         </div>
         <div className="">
         </div>
@@ -16,7 +17,6 @@ function Navbar({HandleClickAddnewMaterial}) {
           <button onClick={HandleClickAddnewMaterial} className='text-sm border-[0px] opacity-100  text-white px-4 py-2 font-bold  bg-gradient-to-r from-[#2194ff] to-[#993eff]  rounded-full'>
              NEW
              <AutoAwesomeSharpIcon sx={{height:20}} className='ml-2'/>
-
           </button>
         </div>
     </div>                          
