@@ -6,7 +6,7 @@ function Navbar({HandleClickAddnewMaterial}) {
 <>
 <div className='fixed nav h-[8vh] w-full nav bg-[#5090D3] flex justify-between items-center px-7'>
         <div className="">
-            
+            <h2 className='text-white underline font-bold-'>MAT-GESTION</h2>
         </div>
         <div className="">
         </div>

@@ -10,7 +10,7 @@ import DataContext from '../Context/Context';
 function AddMateriel({HandleClickAddnewMaterial}) {
     const [error,setError] = useState({design:false,state:false,quantity:false})
     // const queryClient = useQueryClient()
-    const {getMateriel} = useContext(DataContext)
+    const {getMateriel,getSpecifique} = useContext(DataContext)
     const [information,setInformation] = useState({
         design:'',
         quantity: 0,
@@ -36,6 +36,8 @@ function AddMateriel({HandleClickAddnewMaterial}) {
         if(newMaterial.status === 200){
             console.log("Material added successfully")
             getMateriel()
+            getSpecifique()
+            HandleClickAddnewMaterial()
             // queryClient.invalidateQueries('materiel')
         }else{
             console.log(newMaterial)
@@ -97,7 +99,7 @@ function AddMateriel({HandleClickAddnewMaterial}) {
                     <div className= {error.quantity ? "flex items-center border-[1px]  bg-[#17202a] h-[6vh]  rounded-full py-2 px-2 border-red-500"
                     :"flex items-center border-[1px]  bg-[#17202a]   rounded-full h-[6vh] py-2 px-2 border-[#444]"}>
                         <DesignServicesIcon className='w-[10%] text-[#efefef]'/>
-                        <input onFocus={()=>setError(err=>({...err,quantity:false}))} onChange={HandleChange} className='w-[90%] placeholder:text-sm  ml-2 border-none outline-none bg-transparent text-[#efefef]' name='quantity' type='text' placeholder='Enter the State...'/>
+                        <input onFocus={()=>setError(err=>({...err,quantity:false}))} onChange={HandleChange} className='w-[90%] placeholder:text-sm  ml-2 border-none outline-none bg-transparent text-[#efefef]' name='quantity' type='text' placeholder='Enter the Quantity...'/>
                     </div>
                     </div>
                     <div className="flex justify-between items-center p-2">

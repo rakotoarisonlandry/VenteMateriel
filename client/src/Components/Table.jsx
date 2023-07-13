@@ -23,7 +23,7 @@ export default function Table() {
   }
   
   const columns = [
-    { field: 'id', headerName: 'M Materiel', width: 180 },
+    { field: 'id', headerName: 'N materiel', width: 180 },
     {
       field: 'Design',
       headerName: 'Design',
@@ -142,12 +142,12 @@ export default function Table() {
       />
     </Box>
     <div className="flex justify-between items-center mr-5">
-      <button className="px-3 py-2 bg-transparent border border-[#66ACFF] rounded-lg text-[#66ACFF]">
-         {/* <Link to="/admin/dashboard/student/create">Add Student</Link> */}
+      {/* <button className="px-3 py-2 bg-transparent border border-[#66ACFF] rounded-lg text-[#66ACFF]">
+         <Link to="/admin/dashboard/student/create">Add Student</Link>
       </button>
       <button className="px-3 py-2 bg-transparent border border-[#66ACFF] rounded-lg text-[#66ACFF]">
-         {/* <Link to="/admin/dashboard/student/byLevel">materiel List By Level</Link> */}
-      </button>
+         <Link to="/admin/dashboard/student/byLevel">materiel List By Level</Link>
+      </button> */}
     </div>
     </div>
     </>

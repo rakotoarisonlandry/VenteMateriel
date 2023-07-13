@@ -8,7 +8,7 @@ import { useQuery } from '@tanstack/react-query';
 
 function UpdateMateriel({HandleEdit}) {
     const [error,setError] = useState({design:false,state:false,quantity:false})
-    const {getMateriel,idToChange} = useContext(DataContext)
+    const {getMateriel,idToChange,getSpecifique} = useContext(DataContext)
     const queryKey = ['info']
     const getInfo  = async()=>{
         const info  = await axios.get(`http://localhost:8080/materiel/info/${idToChange}`)
@@ -37,11 +37,14 @@ function UpdateMateriel({HandleEdit}) {
     setError(err=>({...err,state:true}))
     }
     else{
-        console.log(information)
+        console.log(information,idToChange)
         const newMaterial = await axios.put(`http://localhost:8080/materiel/update/${idToChange}`,information)
         if(newMaterial.status === 200){
             console.log("Material Updated successfully")
             getMateriel()
+            getSpecifique()
+            HandleEdit()
+
             // queryClient.invalidateQueries('materiel')
         }else{
             console.log(newMaterial)
@@ -113,7 +116,7 @@ function UpdateMateriel({HandleEdit}) {
                     <div className= {error.quantity ? "flex items-center border-[1px]  bg-[#17202a] h-[6vh]  rounded-full py-2 px-2 border-red-500"
                     :"flex items-center border-[1px]  bg-[#17202a]   rounded-full h-[6vh] py-2 px-2 border-[#444]"}>
                         <DesignServicesIcon className='w-[10%] text-[#efefef]'/>
-                        <input onFocus={()=>setError(err=>({...err,quantity:false}))} onChange={HandleChange} value={information.quantity} className='w-[90%] placeholder:text-sm  ml-2 border-none outline-none bg-transparent text-[#efefef]' name='quantity' type='text' placeholder='Enter the State...'/>
+                        <input onFocus={()=>setError(err=>({...err,quantity:false}))} onChange={HandleChange} value={information.quantity} className='w-[90%] placeholder:text-sm  ml-2 border-none outline-none bg-transparent text-[#efefef]' name='quantity' type='text' placeholder='Enter the Quantity...'/>
                     </div>
                     </div>
                     <div className="flex justify-between items-center p-2">
