@@ -138,7 +138,7 @@ export default function Table() {
             },
           },
         }}
-        pageSizeOptions={[5]}
+        pageSizeOptions={[5]} 
         checkboxSelection   
         disableRowSelectionOnClick
       />

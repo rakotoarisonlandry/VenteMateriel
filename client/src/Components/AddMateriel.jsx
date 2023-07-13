@@ -20,6 +20,7 @@ function AddMateriel({HandleClickAddnewMaterial}) {
   const HandleClickConfirm = async()=>{
     if(!information.design){
         setError(err=>({...err,design:true}))
+        
     }
     if(!information.quantity){
     setError(err=>({...err,quantity:true}))
@@ -55,11 +56,14 @@ function AddMateriel({HandleClickAddnewMaterial}) {
                         </div>
                         )
                     }
+                    <p className='text-[#fff] text-[13px]'> Enter State:</p>
                     <div className= {error.design ? "flex items-center border-[1px]  bg-[#eeeeee] h-[6vh]  rounded-full py-2 px-2 border-red-500"
-                    :"flex items-center border-[1px]  bg-[#fff]  rounded-full  h-[6vh] py-2 px-2 border-[#fff]"}>
+                    :"flex items-center border-[1px]  bg-[#fff]  rounded-full  h-[6vh] py-4 px-2 border-[#fff]"}>
                         <DesignServicesIcon className='w-[7%]   mr-6'/>
                         <input onFocus={()=>setError(err=>({...err,design:false}))} onChange={HandleChange} className='w-[90%] placeholder:text-xs  ml-2 border-none outline-none bg-transparent text-[#120029] text-xs' name='design' type='text' placeholder='Design of material...'/>
                     </div>
+
+                    <p className='text-[#fff] text-sm'> Enter State:</p>
                     </div>
                     <div className="flex flex-col space-y-1">
                     {
@@ -90,6 +94,7 @@ function AddMateriel({HandleClickAddnewMaterial}) {
                         </div>
                         )
                     }
+                    <p className='text-[#fff] text-sm'> Enter State:</p>
                     <div className= {error.quantity ? "flex items-center border-[1px]  bg-[#eeeeee] h-[6vh] rounded-md  py-2 px-2 border-red-500"
                     :"flex items-center border-[1px]  bg-[#fff]  rounded-full  h-[6vh] py-2 px-2 "}>
                         <DesignServicesIcon className='w-[10%] text-[#120029] mr-6'/>
@@ -107,7 +112,7 @@ function AddMateriel({HandleClickAddnewMaterial}) {
                 </div>
             </div>
             <div className="w-[50%]">
-                {/* <img className='h-[50vh] w-[50vw]' src={Loti} alt=''/> */}
+
 
             </div>
         </motion.div>
