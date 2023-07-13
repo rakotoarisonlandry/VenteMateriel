@@ -1,22 +1,18 @@
 import React, { useState } from 'react'
-import AutoAwesomeSharpIcon from '@mui/icons-material/AutoAwesomeSharp';
 
 function Navbar({HandleClickAddnewMaterial}) {
 
   return (
 <>
-<div className='fixed h-[9vh] w-full   bg-[#120029]  opacity-100 flex justify-between items-center px-7'>
-        <div className="flex">
-          <h1 className='font-bold  text-[#fff] '>M..</h1>
-          <span className='font-extralight '>|a|t|e|r|i|a|l</span>
+<div className='fixed nav h-[8vh] w-full nav bg-[#5090D3] flex justify-between items-center px-7'>
+        <div className="">
+            <h2 className='text-white underline font-bold-'>MAT-GESTION</h2>
         </div>
         <div className="">
         </div>
         <div className="">
-          <button onClick={HandleClickAddnewMaterial} className='text-sm border-[0px] opacity-100  text-white px-4 py-2 font-bold  bg-gradient-to-r from-[#2194ff] to-[#993eff]  rounded-full'>
-             NEW
-             <AutoAwesomeSharpIcon sx={{height:20}} className='ml-2'/>
-
+          <button onClick={HandleClickAddnewMaterial} className='border-[1px] border-white text-white px-6 py-2 hover:bg-[#007FFF] hover:border-[#007FFF] rounded-lg'>
+            Add new Materiel
           </button>
         </div>
     </div>                          
