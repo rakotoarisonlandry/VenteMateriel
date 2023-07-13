@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './App.css';
 import Navbar from './Components/Navbar';
 import Table from './Components/Table'
 import AddMateriel from './Components/AddMateriel';
-import { ClassNames } from '@emotion/react';
+import DataContext from './Context/Context';
+import Stats from './Components/Stats';
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
   const HandleClickAddnewMaterial = ()=>{
     setShowAdd(ancien=>!ancien)
   }
+
   return (
     <>
     {
@@ -18,9 +20,10 @@ function App() {
         <AddMateriel HandleClickAddnewMaterial={HandleClickAddnewMaterial}/>
       )
     }
-    <div className="flex flex-col space-y-14 h-screen ">
-        <Navbar HandleClickAddnewMaterial={HandleClickAddnewMaterial}  />
+    <div className="flex flex-col relative w-full h-screen">
         <Table/>
+        <Navbar HandleClickAddnewMaterial={HandleClickAddnewMaterial}/>
+        <Stats/>
     </div>
     </>
   );

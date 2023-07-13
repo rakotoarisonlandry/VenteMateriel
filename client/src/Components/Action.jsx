@@ -1,22 +1,24 @@
 import { IconButton, Tooltip } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import DataContext from '../Context/Context';
 
-function Action({params,ChangeValueOfSuccess,ChangeValueOfError}) {
-    
+function Action({params,ChangeValueOfSuccess,ChangeValueOfError,HandleEdit}) {
+    const {getMateriel} = useContext(DataContext)
+    const {changeId} = useContext(DataContext)
     const HandleClickEdit = ()=>{
-        // navigate(`/admin/dashboard/student/${params.id}/edit`)
-  } 
+       changeId(params.id)
+       HandleEdit()
+    } 
   const HandleClickDelete = async()=>{
-    const deleteQcm = await axios.post(`http://localhost:8080/Etudiant/delete.php/${params.id}`)
+    const deleteQcm = await axios.delete(`http://localhost:8080/materiel/delete/${params.id}`)
     console.log(deleteQcm)
     if(deleteQcm.status === 200){
+        getMateriel()
         ChangeValueOfSuccess()
-       
     }else{
         ChangeValueOfError()
     }

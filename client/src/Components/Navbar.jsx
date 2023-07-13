@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import AutoAwesomeSharpIcon from '@mui/icons-material/AutoAwesomeSharp';
+import AutoAwesomeSharpIcon from '@mui/icons-material/AutoAwesome';
 
 function Navbar({HandleClickAddnewMaterial}) {
 
