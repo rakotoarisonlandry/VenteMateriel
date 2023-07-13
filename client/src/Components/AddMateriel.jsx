@@ -3,7 +3,7 @@ import {motion} from 'framer-motion'
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import DesignServicesIcon from '@mui/icons-material/DesignServices';
 import axios from 'axios';
-// import Loti from '../assets/addImage.gif'
+// import Loti from '../assets/illustration.gif'
 import AutoAwesomeSharpIcon from '@mui/icons-material/AutoAwesomeSharp';
 function AddMateriel({HandleClickAddnewMaterial}) {
     const [error,setError] = useState({design:false,state:false,quantity:false})
@@ -55,8 +55,8 @@ function AddMateriel({HandleClickAddnewMaterial}) {
                         </div>
                         )
                     }
-                    <div className= {error.design ? "flex items-center border-[1px]  bg-[#eeeeee] h-[6vh]  rounded-md py-2 px-2 border-red-500"
-                    :"flex items-center border-[1px]  bg-[#fff]  rounded-md  h-[6vh] py-2 px-2 border-[#fff]"}>
+                    <div className= {error.design ? "flex items-center border-[1px]  bg-[#eeeeee] h-[6vh]  rounded-full py-2 px-2 border-red-500"
+                    :"flex items-center border-[1px]  bg-[#fff]  rounded-full  h-[6vh] py-2 px-2 border-[#fff]"}>
                         <DesignServicesIcon className='w-[7%]   mr-6'/>
                         <input onFocus={()=>setError(err=>({...err,design:false}))} onChange={HandleChange} className='w-[90%] placeholder:text-xs  ml-2 border-none outline-none bg-transparent text-[#120029] text-xs' name='design' type='text' placeholder='Design of material...'/>
                     </div>
@@ -72,8 +72,8 @@ function AddMateriel({HandleClickAddnewMaterial}) {
                     }
                     <select onChange={HandleChange} name='state' onFocus={()=>setError(err=>({...err,state:false}))}
                      className={
-                      error.state ? 'outline-none bg-[#17202a] text-[#efefef] border-[1px] h-[6vh]   px-2 border-red-500'
-                      : 'outline-none bg-[#17202a] text-[#efefef] border-[1px] rounded-full px-2  h-[6vh] border-[#444]'
+                      error.state ? 'outline-none bg-[#eeeeee] text-[#efefef] border-[0px] h-[6vh]   px-2 border-red-500'
+                      : 'outline-none bg-[#fff] text-xs text-slate-700 text-[#120029]  border-[1px] rounded-full px-2  h-[6vh] border-[#444]'
                      }>
                         <option value=''>State</option>
                             <option  value="Bon">Bon</option>
@@ -91,14 +91,14 @@ function AddMateriel({HandleClickAddnewMaterial}) {
                         )
                     }
                     <div className= {error.quantity ? "flex items-center border-[1px]  bg-[#eeeeee] h-[6vh] rounded-md  py-2 px-2 border-red-500"
-                    :"flex items-center border-[1px]  bg-[#fff]  rounded-md  h-[6vh] py-2 px-2 "}>
+                    :"flex items-center border-[1px]  bg-[#fff]  rounded-full  h-[6vh] py-2 px-2 "}>
                         <DesignServicesIcon className='w-[10%] text-[#120029] mr-6'/>
                         <input onFocus={()=>setError(err=>({...err,quantity:false}))} onChange={HandleChange} className='w-[90%] placeholder:text-xs ml-2 border-none outline-none bg-transparent text-[#120029] text-xs' name='quantity' type='text' placeholder='Enter the State...'/>
                     </div>
                     </div>
                     <div className="flex justify-between items-center p-2">
                         <button onClick={HandleClickConfirm} className='border-[1px] border-[#17202a] text-[#17202a] px-6 py-2 hover:bg-[#17202a]  hover:text-white rounded-lg'>
-                            Confirme
+                            Confirmer
                         </button>
                         <button  onClick={HandleClickAddnewMaterial} className=' border-[1px] border-red-500 text-red-500 px-6 py-2 hover:bg-red-500  hover:text-white rounded-lg'>
                             Cancel
@@ -107,7 +107,7 @@ function AddMateriel({HandleClickAddnewMaterial}) {
                 </div>
             </div>
             <div className="w-[50%]">
-                {/* <img className='h-[20vh] w-[20vw]' src={Loti} alt=''/> */}
+                {/* <img className='h-[50vh] w-[50vw]' src={Loti} alt=''/> */}
 
             </div>
         </motion.div>

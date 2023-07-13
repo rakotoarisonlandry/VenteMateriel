@@ -8,8 +8,7 @@ function Navbar({HandleClickAddnewMaterial}) {
 <div className='fixed h-[9vh] w-full   bg-[#120029]  opacity-100 flex justify-between items-center px-7'>
         <div className="flex">
           <h1 className='font-bold  text-[#fff] '>M.</h1>
-          <span className='font-extralight text-[#2194ff]'>|a|t|e|</span>
-          <span className='font-extralight  text-[#993eff]' >r|i|a|l</span>
+          <span className='font-extralight  bg-clip-text bg-gradient-to-r from-[#2194ff] to-[#993eff] text-transparent '>|a|t|e|r|i|a|l</span>
         </div>
         <div className="">
         </div>
