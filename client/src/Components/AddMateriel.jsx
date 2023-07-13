@@ -1,12 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {motion} from 'framer-motion'
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import DesignServicesIcon from '@mui/icons-material/DesignServices';
 import axios from 'axios';
+import DataContext from '../Context/Context';
+// import { QueryClient, useQueryClient } from '@tanstack/react-query';
 // import Loti from '../assets/addImage.gif'
-import AutoAwesomeSharpIcon from '@mui/icons-material/AutoAwesomeSharp';
+
 function AddMateriel({HandleClickAddnewMaterial}) {
     const [error,setError] = useState({design:false,state:false,quantity:false})
+    // const queryClient = useQueryClient()
+    const {getMateriel,getSpecifique} = useContext(DataContext)
     const [information,setInformation] = useState({
         design:'',
         quantity: 0,
@@ -31,19 +35,21 @@ function AddMateriel({HandleClickAddnewMaterial}) {
         const newMaterial = await axios.post('http://localhost:8080/materiel/add',information)
         if(newMaterial.status === 200){
             console.log("Material added successfully")
+            getMateriel()
+            getSpecifique()
+            HandleClickAddnewMaterial()
+            // queryClient.invalidateQueries('materiel')
         }else{
             console.log(newMaterial)
         }
     }
   }
   return (
-      <div className="overlay" onClick={HandleClickAddnewMaterial}  >
-        <motion.div className="centrale flex m-0 p-0 rounded-[20%]" onClick={(e)=> e.stopPropagation()}   >
-            <div className="w-[50%] flex flex-col  pr-12 px-12 bg-[#120029] ">
+      <motion.div className="overlay" onClick={HandleClickAddnewMaterial}>
+        <div className="centrale flex m-0 p-0" onClick={(e)=> e.stopPropagation()}>
+            <div className="w-[50%] flex flex-col  p-5 ">
                 <div className="flex w-full justify-center items-center mt-10">
-                    <h1 className='font-extrabold text-white text-[20px]'>
-                        <AutoAwesomeSharpIcon/>
-                    </h1>
+                    <h1 className='uppercase'>Add new Material</h1>
                 </div>
                 <div className="flex flex-col space-y-5 mt-10">
                     <div className="flex flex-col space-y-1">
@@ -55,10 +61,10 @@ function AddMateriel({HandleClickAddnewMaterial}) {
                         </div>
                         )
                     }
-                    <div className= {error.design ? "flex items-center border-[1px]  bg-[#eeeeee] h-[6vh]  rounded-md py-2 px-2 border-red-500"
-                    :"flex items-center border-[1px]  bg-[#fff]  rounded-md  h-[6vh] py-2 px-2 border-[#fff]"}>
-                        <DesignServicesIcon className='w-[7%]   mr-6'/>
-                        <input onFocus={()=>setError(err=>({...err,design:false}))} onChange={HandleChange} className='w-[90%] placeholder:text-xs  ml-2 border-none outline-none bg-transparent text-[#120029] text-xs' name='design' type='text' placeholder='Design of material...'/>
+                    <div className= {error.design ? "flex items-center border-[1px]  bg-[#17202a] h-[6vh]  rounded-full py-2 px-2 border-red-500"
+                    :"flex items-center border-[1px]  bg-[#17202a]   rounded-full h-[6vh] py-2 px-2 border-[#444]"}>
+                        <DesignServicesIcon className='w-[10%] text-[#efefef]'/>
+                        <input onFocus={()=>setError(err=>({...err,design:false}))} onChange={HandleChange} className='w-[90%] placeholder:text-sm  ml-2 border-none outline-none bg-transparent text-[#efefef]' name='design' type='text' placeholder='Design of material...'/>
                     </div>
                     </div>
                     <div className="flex flex-col space-y-1">
@@ -72,7 +78,7 @@ function AddMateriel({HandleClickAddnewMaterial}) {
                     }
                     <select onChange={HandleChange} name='state' onFocus={()=>setError(err=>({...err,state:false}))}
                      className={
-                      error.state ? 'outline-none bg-[#17202a] text-[#efefef] border-[1px] h-[6vh]   px-2 border-red-500'
+                      error.state ? 'outline-none bg-[#17202a] text-[#efefef] border-[1px] h-[6vh] rounded-full  px-2 border-red-500'
                       : 'outline-none bg-[#17202a] text-[#efefef] border-[1px] rounded-full px-2  h-[6vh] border-[#444]'
                      }>
                         <option value=''>State</option>
@@ -90,10 +96,10 @@ function AddMateriel({HandleClickAddnewMaterial}) {
                         </div>
                         )
                     }
-                    <div className= {error.quantity ? "flex items-center border-[1px]  bg-[#eeeeee] h-[6vh] rounded-md  py-2 px-2 border-red-500"
-                    :"flex items-center border-[1px]  bg-[#fff]  rounded-md  h-[6vh] py-2 px-2 "}>
-                        <DesignServicesIcon className='w-[10%] text-[#120029] mr-6'/>
-                        <input onFocus={()=>setError(err=>({...err,quantity:false}))} onChange={HandleChange} className='w-[90%] placeholder:text-xs ml-2 border-none outline-none bg-transparent text-[#120029] text-xs' name='quantity' type='text' placeholder='Enter the State...'/>
+                    <div className= {error.quantity ? "flex items-center border-[1px]  bg-[#17202a] h-[6vh]  rounded-full py-2 px-2 border-red-500"
+                    :"flex items-center border-[1px]  bg-[#17202a]   rounded-full h-[6vh] py-2 px-2 border-[#444]"}>
+                        <DesignServicesIcon className='w-[10%] text-[#efefef]'/>
+                        <input onFocus={()=>setError(err=>({...err,quantity:false}))} onChange={HandleChange} className='w-[90%] placeholder:text-sm  ml-2 border-none outline-none bg-transparent text-[#efefef]' name='quantity' type='text' placeholder='Enter the Quantity...'/>
                     </div>
                     </div>
                     <div className="flex justify-between items-center p-2">
@@ -106,12 +112,12 @@ function AddMateriel({HandleClickAddnewMaterial}) {
                     </div>
                 </div>
             </div>
-            <div className="w-[50%]">
+            <div className="w-[50%] bg-slate-500">
                 {/* <img className='h-[20vh] w-[20vw]' src={Loti} alt=''/> */}
 
             </div>
-        </motion.div>
-      </div>
+        </div>
+      </motion.div>
   )
 }
 
