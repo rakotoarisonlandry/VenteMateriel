@@ -52,13 +52,13 @@ function AddMateriel({ HandleClickAddnewMaterial }) {
     }
   };
   return (
-    <motion.div className="overlay" onClick={HandleClickAddnewMaterial}>
+    <motion.div className="overlay " onClick={HandleClickAddnewMaterial}>
       <div
         className="centrale flex m-0 p-0"
         onClick={(e) => e.stopPropagation()}
       >
        <div className="w-[50%] bg-white">
-          <img className='h-[50vh] w-[50vw]' src={Loti} alt='' />
+          <img className='h-[50vh] w-[50vw] align-middle pt-[30px] pb-0 mt-[29px]' src={Loti} alt='' />
         </div>
         <div className="w-[50%] flex flex-col  p-5 ">
         
