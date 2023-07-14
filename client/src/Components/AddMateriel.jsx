@@ -6,6 +6,7 @@ import axios from "axios";
 import DataContext from "../Context/Context";
 // import { QueryClient, useQueryClient } from '@tanstack/react-query';
 import Loti from '../assets/illustration.jpg'
+import 'client/src/index.css'
 import AutoAwesomeSharpIcon from '@mui/icons-material/AutoAwesome';
 
 function AddMateriel({ HandleClickAddnewMaterial }) {
@@ -60,9 +61,9 @@ function AddMateriel({ HandleClickAddnewMaterial }) {
        <div className="w-[50%] bg-white">
           <img className='h-[50vh] w-[50vw] align-middle pt-[30px] pb-0 mt-[29px]' src={Loti} alt='' />
         </div>
-        <div className="w-[50%] flex flex-col  p-5 ">
+        <div className="w-[50%] flex flex-col  p-5 bg-[#7adffb] bg-transparent">
         
-          <div className="flex w-full justify-left items-center mt-10">
+          <div className="flex w-full justify-left items-center mt-10 ">
           <AutoAwesomeSharpIcon sx={{height:20 }} className='mx-2 '/>
             <h1 className="uppercase bg-clip-text bg-gradient-to-r from-[#2194ff] to-[#993eff] stroke-current">Add new Material</h1>
           </div>
